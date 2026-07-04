@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Bomba de Calcio-Sodio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- PANEL DE CONTROLES -->
+        <div class="control-panel">
+            <div class="header">
+                <h1>Simulador Bomba Na⁺/K⁺-ATPasa</h1>
+                <p>Efecto de la Digoxina en la Contracción Cardíaca</p>
+            </div>
+
+            <div class="controls-section">
+                <div class="button-group">
+                    <button id="startBtn" class="btn btn-primary">▶ Iniciar</button>
+                    <button id="pauseBtn" class="btn btn-secondary">⏸ Pausar</button>
+                    <button id="resetBtn" class="btn btn-secondary">↻ Reiniciar</button>
+                </div>
+                
+                <div class="speed-control">
+                    <label for="speedToggle">Velocidad:</label>
+                    <button id="speedToggle" class="btn btn-small">×1</button>
+                </div>
+            </div>
+
+            <div class="slider-section">
+                <label for="digoxinaSlider">
+                    Digoxina: <span id="digoxinaValue">0</span>%
+                </label>
+                <input type="range" id="digoxinaSlider" min="0" max="100" value="0">
+            </div>
+
+            <div class="metrics-panel">
+                <h3>Métricas en Tiempo Real</h3>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-label">Na⁺ Intracelular</span>
+                        <span class="metric-value" id="naInternal">50 mM</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Na⁺ Extracelular</span>
+                        <span class="metric-value" id="naExternal">145 mM</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">K⁺ Intracelular</span>
+                        <span class="metric-value" id="kInternal">140 mM</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">K⁺ Extracelular</span>
+                        <span class="metric-value" id="kExternal">5 mM</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Ca²⁺ Intracelular</span>
+                        <span class="metric-value" id="caInternal">100 nM</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">ATPasas Activas</span>
+                        <span class="metric-value" id="atpaseActive">10</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">ATPasas Bloqueadas</span>
+                        <span class="metric-value" id="atpaseBlocked">0</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Velocidad NCX</span>
+                        <span class="metric-value" id="ncxSpeed">100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÁREA DE SIMULACIÓN VISUAL -->
+        <div class="simulation-area">
+            <canvas id="simulationCanvas"></canvas>
+        </div>
+
+        <!-- GRÁFICO DE DATOS -->
+        <div class="graph-panel">
+            <h3>Monitoreo de Variables</h3>
+            <canvas id="graphCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
